@@ -19,8 +19,9 @@ class GenerateInvoiceController extends Controller
             Storage::makeDirectory('invoices');
         }
 
-        return Pdf::loadView('invoices.index', compact('invoice'))
-        ->save(Storage::path('invoices') . DIRECTORY_SEPARATOR . $invoice->id . '.pdf')
-        ->stream();
+        Pdf::loadView('invoices.index', compact('invoice'))
+        ->save($filename = Storage::path('invoices') . DIRECTORY_SEPARATOR . $invoice->id . '.pdf');
+
+        return response()->file($filename);
     }
 }
