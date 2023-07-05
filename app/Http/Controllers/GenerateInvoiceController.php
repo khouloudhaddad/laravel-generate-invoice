@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
  use Barryvdh\DomPDF\Facade\Pdf;
+ use Illuminate\Support\Facades\Storage;
  use App\Models\Invoice;
 
 class GenerateInvoiceController extends Controller
