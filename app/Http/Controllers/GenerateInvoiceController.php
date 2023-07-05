@@ -13,6 +13,6 @@ class GenerateInvoiceController extends Controller
     public function __invoke()
     {
         $invoice = Invoice::find(3);
-        return Pdf::loadView('invoices.index', compact('invoice'))->download('invoice.pdf');
+        return Pdf::loadView('invoices.index', compact('invoice'))->stream();
     }
 }
